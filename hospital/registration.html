@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hospital Registration Form</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <section class="feedback">
+        <div class="feedback">
+        </div>
+    </section>
+    <section class="job-search">
+        <div class="form-container">
+            <form action="registration.php" method="post" name="jobsForm" id="jobsForm">
+                <div class="form-title">Hospital Registration Form</div>
+                <div class="row">
+                    <div class="form-item">
+                        <label for="fName">First Name</label>
+                        <input type="text" name="fName" id="fName" placeholder="Please enter your first Name"
+                            required>
+                    </div>
+
+                    <div class="form-item">
+                        <label for="lName">Last Name</label>
+                        <input type="text" name="lName" id="lName" placeholder="Please enter your last Name"
+                            required>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="form-item">
+                        <label for="phone">Phone</label>
+                        <input type="tel" name="phone" id="phone" placeholder="Please enter your phone number" required>
+                    </div>
+
+                    <div class="form-item">
+                        <label for="dateOfBirth">Date of Birth</label><br>
+                        <input type="date" name="dateOfBirth" id="dateOfBirth" placeholder="mm/dd/yy">
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="form-item">
+                        <label for="kin">Next of kin</label>
+                        <input type="text" name="kin" id="kin" placeholder="Please enter your Next of kin" required>
+                    </div>
+
+                    <div class="row">
+                        <div class="form-item">
+                            <label for="Insurance">Insurance Type</label>
+                            <select name="Insurance" id="Insurance">
+                                <option value="" selected disabled> -- Please select the type of insurance you're using --</option>
+                                <option value="NHIF">NHIF</option>
+                                <option value="Madison">Madison</option>
+                                <option value="AAR">AAR</option>
+                                <option value="Jubille">Jubilee</option>
+                                <option value="Britam">Britam</option>
+                            </select>
+                        </div>
+                </div>
+
+                <div class="form-item">
+                    <label for="Gender">Gender</label><br>
+                    <input type="radio" name="Gender" id="male" value="male"> Male
+                    <input type="radio" name="Gender" id="female" value="female">Female
+                </div>
+
+                    
+                </div>
+
+                <div class="row">
+                    <div class="form-item">
+                        <label for="medHistory">Medical History</label>
+                        <textarea name="medHistory" id="medHistory"></textarea>
+                    </div>
+
+                </div>
+
+
+                <input type="submit" value="Register" id="submit" name="submit">
+
+            </form>
+        </div>
+    </section>
+
+
+</body>
+
+</html>
