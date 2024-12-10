@@ -1,0 +1,42 @@
+<!DOCTYPE html> 
+<html> 
+<head> 
+<title>Employee Registration</title> 
+</head> 
+<body> 
+<h1>Employee Registration Form</h1> 
+<form action="submit_employee.php" method="post" enctype="multipart/form-data"> 
+<label for="firstName">First Name:</label> 
+<input type="text" id="firstName" name="firstName" required><br><br> 
+<label for="secondName">Second Name:</label> 
+<input type="text" id="secondName" name="secondName" required><br><br> 
+<label for="dob">Date of Birth:</label> 
+<input type="date" id="dob" name="dob" required><br><br> 
+<label>Gender:</label> 
+<input type="radio" id="male" name="gender" value="Male" required> 
+<label for="male">Male</label> 
+<input type="radio" id="female" name="gender" value="Female"> 
+<label for="female">Female</label><br><br> 
+<label>Marital Status:</label> 
+<input type="radio" id="single" name="maritalStatus" value="Single" required> 
+<label for="single">Single</label> 
+<input type="radio" id="married" name="maritalStatus" value="Married"> 
+<label for="married">Married</label><br><br> 
+<label>Favorite Color:</label><br> 
+<input type="checkbox" name="favoriteColor[]" value="Red"> Red<br> 
+<input type="checkbox" name="favoriteColor[]" value="Blue"> Blue<br> 
+<input type="checkbox" name="favoriteColor[]" value="Green"> Green<br><br> 
+<label for="photo">Upload Photo:</label> 
+<input type="file" id="photo" name="photo" accept="image/*" required><br><br> 
+<label for="country">Country:</label> 
+<select id="country" name="country" required> 
+<option value="USA">USA</option> 
+<option value="UK">UK</option> 
+<option value="Canada">Canada</option> 
+<option value="India">India</option> 
+<option value="Australia">Australia</option> 
+</select><br><br> 
+<button type="submit">Submit</button> 
+</form> 
+</body> 
+</html>
