@@ -1,4 +1,6 @@
 <?php
+
+
 $servername = "localhost";
 $username = "root";
 $password = "";
@@ -21,9 +23,12 @@ $dob = mysqli_real_escape_string($conn, $_POST["dateOfBirth"]);
 $nok = mysqli_real_escape_string($conn, $_POST["kin"]);
 $ins = mysqli_real_escape_string($conn, $_POST["Insurance"]);
 $medhist = mysqli_real_escape_string($conn, $_POST["medHistory"]);
-
-// Insert data into the database
-$sql = "INSERT INTO registration (first_name, last_name,date_of_birth,next_of_kin,incurance_type, gender, medicall_history,telephone) VALUES ('$fn', '$ln', '$dob', '$nok','$ins','$gen','$medhist','$telnumber')";
+// Handle file upload 
+$photo = $_FILES['photo']; 
+$photoPath = "uploads/" . basename($photo['name']); 
+if (!move_uploaded_file($photo['tmp_name'], $photoPath)) { 
+die("Failed to upload photo."); 
+} 
 
 if (mysqli_query($conn, $sql)) {
     echo "Records have been saved successfully!";

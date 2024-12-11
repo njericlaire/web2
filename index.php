@@ -81,8 +81,4 @@ else
     echo "D";
 
 
-   
-$num = 9;
-$city = "Beijing";
-printf("There are %u million bicycles in %s.", $num, $city);
 
