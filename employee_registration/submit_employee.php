@@ -18,12 +18,44 @@ $gender = $_POST['gender'];
 $maritalStatus = $_POST['maritalStatus']; 
 $favoriteColor = isset($_POST['favoriteColor']) ? implode(", ", $_POST['favoriteColor']) : ""; 
 $country = $_POST['country']; 
-// Handle file upload 
-$photo = $_FILES['photo']; 
-$photoPath = "uploads/" . basename($photo['name']); 
-if (!move_uploaded_file($photo['tmp_name'], $photoPath)) { 
-die("Failed to upload photo."); 
-} 
+// Directory for uploads
+$uploadDir = "uploads/";
+
+// Check if directory exists, create if not
+if (!is_dir($uploadDir)) {
+    mkdir($uploadDir, 0755, true); // Create with appropriate permissions
+}
+
+// Handle file upload
+$photo = $_FILES['photo'];
+$originalName = basename($photo['name']);
+$fileInfo = pathinfo($originalName);
+
+// Allowed file types
+$allowedExtensions = ['jpg', 'jpeg', 'png', 'gif'];
+$maxFileSize = 2 * 1024 * 1024; // 2 MB
+
+// Validate file type
+if (!in_array(strtolower($fileInfo['extension']), $allowedExtensions)) {
+    die("Invalid file type. Only JPG, PNG, and GIF files are allowed.");
+}
+
+// Validate file size
+if ($photo['size'] > $maxFileSize) {
+    die("File size exceeds the 2MB limit.");
+}
+
+// Generate unique file name
+$uniqueName = uniqid() . '.' . $fileInfo['extension'];
+$photoPath = $uploadDir . $uniqueName;
+
+// Move the uploaded file
+if (!move_uploaded_file($photo['tmp_name'], $photoPath)) {
+    die("Failed to upload photo.");
+}
+
+echo "Photo uploaded successfully: " . htmlspecialchars($uniqueName);
+
 // Insert data into MySQL 
 $sql = "INSERT INTO tblstaff (firstName, secondName, dob, gender, maritalStatus, 
 favoriteColor, photo, country) 
